@@ -22,7 +22,7 @@ export default function Button() {
       </button>
       <ul className='bg-blue-300'>
         {users.map(user => {
-          return <li>{user.name}</li>;
+          return <li key={user.id}>{user.name}</li>;
         })}
       </ul>
     </>
