@@ -14,10 +14,22 @@ export const authConfig = {
 
         const user = await getUserByEmail(email);
         if (user && (await bcrypt.compare(password, user.password))){
-          return user;
+          return {
+            ...user,
+            image:user.imageUrl
+          }
         }
         return null;
       },
     }),
   ],
+  callbacks: {
+    jwt({ token, trigger, session }) {
+      if (trigger === 'update' && session) {
+        token.name = session.name;
+        token.picture = session.image;
+      }
+      return token;
+    },
+  },
 };

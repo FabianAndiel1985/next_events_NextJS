@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback } from 'react'
-import { useDropzone } from '@uploadthing/react/hooks'
+import { useDropzone } from '@uploadthing/react';
 import { generateClientDropzoneAccept } from 'uploadthing/client'
 import { FaUpload } from "react-icons/fa";
 import Image from 'next/image';

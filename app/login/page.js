@@ -1,5 +1,6 @@
 import LoginForm from '@/components/LoginForm';
-
+import { getServerSession } from 'next-auth';
+import { authConfig } from '../api/auth/[...nextauth]/authConfig';
 
 export default async function Login({ searchParams }) {
   const data = await getServerSession(authConfig);
